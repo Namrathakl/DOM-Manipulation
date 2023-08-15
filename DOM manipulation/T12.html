@@ -1,0 +1,57 @@
+<html>
+    <body>
+      <form onsubmit="saveTo(event)">
+        <div class="container" id="forms">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="emailId">Email:</label>
+        <input type="text" id="emailId" required>
+        <label for="phNo">PhoneNumber:</label>
+        <input type="tel" id="phNo" required>
+        <button> Submit </button>
+        </div>
+      </form>
+
+      <script>
+        function saveTo(event) {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.emailId.value;
+        const phoneNumber = event.target.phNo.value;
+
+        let ul=document.createElement('ul');
+// console.log(ul);
+
+        let li=document.createElement('li');
+// console.log(li);
+        li.className='user-details';
+
+        li.appendChild(document.createTextNode(name));
+        li.appendChild(document.createTextNode(email));
+        li.appendChild(document.createTextNode(phoneNumber));
+        ul.appendChild(li);
+
+      let div = document.getElementById('forms');
+      div.appendChild(ul);
+
+
+
+ var newUser={
+        name,
+        email,
+        phoneNumber
+};
+
+
+localStorage.setItem(newUser.email,JSON.stringify(newUser))
+
+
+
+}
+
+      </script>
+
+    </body>
+
+   
+</html>
