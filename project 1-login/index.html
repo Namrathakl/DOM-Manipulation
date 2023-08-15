@@ -13,7 +13,7 @@
     </header>
 
     <section class="container">
-      <form id="my-form">
+      <form id="my-form" onsubmit="local_storage()">
         <h1>Add User</h1>
         <div class="msg"></div>
         <div>
@@ -26,6 +26,7 @@
         </div>
         <input class="btn" type="submit" value="Submit">
       </form>
+      
 
       <ul id="users"></ul>
 
@@ -37,7 +38,15 @@
     </section>
     
 
-    <script src="main2.js"></script>
+    <script type="text/javascript">
+      function local_storage() {
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+      };
+     
+      let newmyobj = JSON.stringify(local_storage);
+      localStorage.setItem("myobj", newmyobj);
+    </script>
   </body>
 </html>
 
