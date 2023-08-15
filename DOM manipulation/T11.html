@@ -73,7 +73,7 @@ ul
 
 
 <section class="container">
-    <form id="my_form" action="#">
+    <form id="my_form" action="#" onsubmit="saveTo(event)">
 
 
             <h1>ADD USER</h1>
@@ -110,36 +110,21 @@ ul
     </section>
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
 //how to store objects in local storage 
+      function saveTo(event) {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const obj = {
+            name,
+            email
+        }
+        localStorage.setItem('userDetails', JSON.stringify(obj));
+      }
 
-let myObj = {
-name:'Namratha',
-Age:23
-
-};
-
-//if we see th eoutput it is shows as object 
-//so we can convert string into it
-
-let obj_serialized=JSON.stringify(myObj);
-console.log(obj_serialized);
-
-// console.log(localStorage);
-
-localStorage.setItem('myObj',obj_serialized);
-
-
-//AT THE END WE  WANT THE SAME OUTPUT SO CONVERTTHE STRING INTO THE
-//OBJECT....PUT JSON STRING OPPOSITEW OF JSON PARSEC (OBJECT) 
-
-let obj_deserializes=JSON.parse(localStorage.getItem('myObj'));
-
-console.log(obj_deserializes);
-
-
-</script>
+    </script>
 
 </head>
 </body>
